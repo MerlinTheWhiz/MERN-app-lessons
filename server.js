@@ -5,8 +5,21 @@ const app = express(); //
 
 //to build an api route
 //in the bracket, the quotation is what we're listening to(the end point) and then a function to come after the comma
-app.get("/api/note", (req, res) => {
-  res.send("you got 5 notes");
+//the entire line is called a route
+app.get("/api/notes", (req, res) => {
+  res.status(200).send("you got 10 notes");
+});
+
+app.post("/api/notes", (req, res)=> {
+  res.status(201).json("Note created successfully");
+});
+
+app.put("/api/notes/:id", (req, res) => {
+  res.status(200).json("Note updated successfully");
+});
+
+app.delete("/api/notes/:id", (req, res) => {
+  res.status(200).json("Note updated successfully");
 });
 
 //to listen on a port
