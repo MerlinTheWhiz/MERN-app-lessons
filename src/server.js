@@ -2,12 +2,9 @@ import express from "express"; //cannot use this by default, you must change typ
 //const express = require("express"); //can use this by default, same function with the above
 import notesRoutes from "./routes/noteRoutes.js";
 
-const app = express(); //
+const app = express();
 
 app.use("/api/notes", notesRoutes)
-
-
-
 
 //to listen on a port
 app.listen(5300, () => {
