@@ -1,12 +1,17 @@
-import express from "express"; //cannot use this by default, you must change type to module for this
-//const express = require("express"); //can use this by default, same function with the above
+import express from "express"; 
 import notesRoutes from "./routes/noteRoutes.js";
+import { connectDB } from "./config/db.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 5300;
+
+connectDB()
 
 app.use("/api/notes", notesRoutes)
 
-//to listen on a port
-app.listen(5300, () => {
-  console.log("Server started on PORT: 5300");
+app.listen(PORT, () => {
+  console.log("Server started on PORT: ", PORT);
 });
