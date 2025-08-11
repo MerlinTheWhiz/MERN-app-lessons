@@ -12,12 +12,12 @@ console.log(process.env.MONGO_URI)
 const app = express();
 const PORT = process.env.PORT || 5300;
 
-
-app.use(express.json()); // this middleware will parse JSON bodies: req.body
-app.use(rateLimiter); // middleware for ratelimiters
 app.use(cors({
   origin: "http://localhost:5173"
 }));
+app.use(express.json()); // this middleware will parse JSON bodies: req.body
+app.use(rateLimiter); // middleware for ratelimiters
+
 
 //our simple custom middleware
 //app.use(() => {
